@@ -36,5 +36,29 @@ public class RSA {
 		} 
 		return ans; 
 	}
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	public static java.lang.String longTo2Chars(long x){
+		return null;
+	}
+	
+	public static long randPrime(int m, int n, java.util.Random rand) {
+		return 0;
+	}
+	
+	public static long relPrime(long n, java.util.Random rand) {
+		return 0;
+	}
+	
+	public static void show(long[] cipher) {
+		
+	}
+	
+	public static long toLong(java.lang.String msg, int p) {
+		return 0;
+	}
 
 }
