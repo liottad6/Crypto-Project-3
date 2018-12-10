@@ -7,9 +7,31 @@ public class RSA {
 	
 	
 	
-	public static void main(String[] args) {
-		
-	}
+	public static void main (String args[]){   
+        Person Alice = new Person();
+        Person Bob = new Person();
+    
+        String msg = new String ("Bob, let's have lunch.");     // message to be sent to Bob
+        long []  cipher;
+        cipher =  Alice.encryptTo(msg, Bob);            // encrypted, with Bob's public key
+    
+        System.out.println ("Message is: " + msg);
+        System.out.println ("Alice sends:");
+        show (cipher);
+    
+        System.out.println ("Bob decodes and reads: " + Bob.decrypt (cipher));  // decrypted,
+                                    // with Bob's private key.
+        System.out.println ();
+    
+        msg = new String ("No thanks, I'm busy");
+        cipher = Bob.encryptTo (msg, Alice);
+        
+        System.out.println ("Message is: " + msg);
+        System.out.println ("Bob sends:");
+        show (cipher);
+    
+        System.out.println ("Alice decodes and reads: " + Alice.decrypt (cipher));
+    	}//end main
 	
 	
 	/**
@@ -88,13 +110,44 @@ public class RSA {
 		return 0;
 	}
 	
-	public static void show(long[] cipher) {
-		
-	}
+	/**
+    	 * Display an array of longs on stdout
+ 	 * 
+ 	 * @param  cipher   array of longs
+         */
+   	 public static void show(long[] cipher){
+       	 int i = 0;
+   	     while (i < cipher.length){
+        	    System.out.print(cipher[i]);
+          	  i++;
+       	     }//end while
+    	 }//end show
 	
-	public static long toLong(java.lang.String msg, int p) {
-		return 0;
-	}
+	/**
+     	* Convert two numeric chars to long int
+    	* 
+     	* @param  msg, p  
+     	* @return     the two digit number beginning at position p of msg as a long int.
+     	*/
+    	public static long toLong(String msg, int p){
+        	String msg2 = msg.substring(p,p+2);
+        	int a = msg2.charAt(0);
+        	int b = msg2.charAt(1);
+        	long output = a|b;
+        	return output;
+    	}//end toLong
 	
+	/**
+     	* Convert a long to 2 chars
+     	* 
+     	* @param  x
+     	* @return     The string made up two numeric digits representing x
+     	*/
+    	public String longTo2Chars(long x){
+        	char a = (char)(x >> 32);
+        	char b = (char) x;
+        	String output = "" + a + b;
+        	return output;
+    	}//end longTo2Chars
 
 }
