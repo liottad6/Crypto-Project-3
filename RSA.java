@@ -5,6 +5,13 @@
  */
 public class RSA {
 	
+	
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	
 	/**
 	 * @author Manoj
 	 * @param e
@@ -13,7 +20,40 @@ public class RSA {
 	 */
 	public static long inverse(long e, long m)
 	{
-		return (Long) null;
+		
+		long ans = 0; long nu = 0; long ru = 1; long fin;
+		
+		
+
+		long quo = m/e;
+		long r = m - (quo * e);
+		long r2 = e;
+		while ((r > 1))
+		{
+			fin = nu - (quo * ru);
+			nu = ru;
+			ru = fin;
+			quo = r2/r;
+			long r3 = r;
+			r = r2 - (r * quo);
+			r2 = r3;
+			
+			
+		}
+		
+		if(r == 1)
+		{
+			fin = nu - (quo * ru);
+			if(fin < 0)
+			{
+				ans = fin + m;
+			}
+			else
+				ans = fin % m;
+		}
+		return ans;
+		
+		
 	}
 	
 	/**
@@ -36,11 +76,6 @@ public class RSA {
 		} 
 		return ans; 
 	}
-	
-	public static void main(String[] args) {
-		
-	}
-	
 	public static java.lang.String longTo2Chars(long x){
 		return null;
 	}
@@ -60,5 +95,6 @@ public class RSA {
 	public static long toLong(java.lang.String msg, int p) {
 		return 0;
 	}
+	
 
 }
