@@ -1,6 +1,6 @@
 
 /**
- * @author Manoj
+ * @authors Manoj and Jared Bauta
  *
  */
 import java.util.Random;
