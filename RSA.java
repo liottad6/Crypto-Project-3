@@ -212,16 +212,17 @@ public class RSA {
         }//end toLong
 	
 	/**
-     	* Convert a long to 2 chars
-     	* 
-     	* @param  x
-     	* @return     The string made up two numeric digits representing x
-     	*/
-    	public String longTo2Chars(long x){
-        	char a = (char)(x >> 32);
-        	char b = (char) x;
-        	String output = "" + a + b;
-        	return output;
-    	}//end longTo2Chars
+        * Convert a long to 2 chars
+        * 
+        * @param  x
+        * @return     The string made up two numeric digits representing x
+        */
+        public static String longTo2Chars(long x){
+            long temp = x >> 8;
+            byte b = (byte) x;
+            byte a = (byte) temp;
+            String output = "" + (char)a + (char)b;
+            return output;
+        }//end longTo2Chars
 
 }
