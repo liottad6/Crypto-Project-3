@@ -101,9 +101,43 @@ public class RSA {
 	}
 	
 	
-	public static long randPrime(int m, int n, Random rand) {
-		return 0;
-	}
+	/**
+        * Find a random prime number
+        * 
+        * @param      m, n, java.util.Random  
+        * @return     A random prime in the range m..n, using rand to generate the number
+        */
+        public static long randPrime(int m, int n, Random rand) {
+            boolean prime = false;
+            int randomPrime = 0;
+            while(!prime){
+                prime = true;
+                int randomInt = m + rand.nextInt(n-m);
+                
+                int bound = (int) Math.sqrt((double)randomInt);
+                //while loop check if the generated number is prime
+                int i = 3;
+                if ((randomInt % 2) == 0){
+                    //immediately fails if number is even
+                    i = bound+1;
+                    prime = false;
+                }//end if
+                while(i <= bound){
+                    //checks if i divides the generated number
+                    if ((randomInt % i) == 0){
+                        //i is a factor of randomInt
+                        prime = false;
+                    }//end if
+                    //breaks the loop if the prime test is failed
+                    if (prime == false){
+                        i = bound;
+                    }//end if
+                    i += 2;
+                }//end while
+                randomPrime = randomInt;
+            }//end while
+            return randomPrime;
+        }//end randPrime
 	
 	public static long relPrime(long n, Random rand) {
 		return 0;
