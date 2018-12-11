@@ -5,7 +5,7 @@
  */
 public class RSA {
 	
-	
+	import java.util.Random;
 	
 	public static void main (String args[]){   
         Person Alice = new Person();
@@ -98,15 +98,13 @@ public class RSA {
 		} 
 		return ans; 
 	}
-	public static java.lang.String longTo2Chars(long x){
-		return null;
-	}
 	
-	public static long randPrime(int m, int n, java.util.Random rand) {
+	
+	public static long randPrime(int m, int n, Random rand) {
 		return 0;
 	}
 	
-	public static long relPrime(long n, java.util.Random rand) {
+	public static long relPrime(long n, Random rand) {
 		return 0;
 	}
 	
