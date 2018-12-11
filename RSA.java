@@ -103,7 +103,7 @@ public class RSA {
 	
 	/**
         * Find a random prime number
-        * 
+        * @author     Jared Bauta
         * @param      m, n, java.util.Random  
         * @return     A random prime in the range m..n, using rand to generate the number
         */
@@ -141,7 +141,7 @@ public class RSA {
 	
 	/**
         * Find a random number relatively prime to a given long int
-        * 
+        * @author     Jared Bauta
         * @param      n, java.util.Random  
         * @return     a random number relatively prime to n
         */
