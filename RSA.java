@@ -3,9 +3,10 @@
  * @author Manoj
  *
  */
+import java.util.Random;
 public class RSA {
 	
-	import java.util.Random;
+	
 	
 	public static void main (String args[]){   
         Person Alice = new Person();
