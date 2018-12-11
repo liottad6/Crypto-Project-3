@@ -196,18 +196,20 @@ public class RSA {
     	 }//end show
 	
 	/**
-     	* Convert two numeric chars to long int
-    	* 
-     	* @param  msg, p  
-     	* @return     the two digit number beginning at position p of msg as a long int.
-     	*/
-    	public static long toLong(String msg, int p){
-        	String msg2 = msg.substring(p,p+2);
-        	int a = msg2.charAt(0);
-        	int b = msg2.charAt(1);
-        	long output = a|b;
-        	return output;
-    	}//end toLong
+        * Convert two numeric chars to long int
+        * 
+        * @param  msg, p  
+        * @return     the two digit number beginning at position p of msg as a long int.
+        */
+        public static long toLong(String msg, int p){
+            String msg2 = msg.substring(p,p+2);
+            byte a = (byte)msg2.charAt(0);
+            byte b = (byte)msg2.charAt(1);
+            long output = a;
+            output = output<< 8;
+            output += b;
+            return output;
+        }//end toLong
 	
 	/**
      	* Convert a long to 2 chars
