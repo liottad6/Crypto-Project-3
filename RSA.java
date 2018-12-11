@@ -184,21 +184,20 @@ public class RSA {
 	
 	/**
          * Display an array of longs on stdout
-         * 
          * @param  cipher   array of longs
          */
         public static void show(long[] cipher){
-            int i = 0;
-            while (i < cipher.length){
-              System.out.print(cipher[i]);
-              i++;
-            }//end while
-            System.out.println();
+            System.out.print("[");
+		int i = 0;
+  	     while (i < cipher.length){
+       	    System.out.print(cipher[i] + " ");
+         	  i++;
+      	     }//end while
+  	     System.out.print("]" + "\n");
          }//end show
 	
 	/**
         * Convert two numeric chars to long int
-        * 
         * @param  msg, p  
         * @return     the two digit number beginning at position p of msg as a long int.
         */
