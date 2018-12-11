@@ -139,9 +139,48 @@ public class RSA {
             return randomPrime;
         }//end randPrime
 	
-	public static long relPrime(long n, Random rand) {
-		return 0;
-	}
+	/**
+        * Find a random number relatively prime to a given long int
+        * 
+        * @param      n, java.util.Random  
+        * @return     a random number relatively prime to n
+        */
+        public static long relPrime(long n, Random rand) {
+            //gcd must be 1 for two relatively prime numbers
+            boolean a = false;
+            long output = 0;
+            while(!a){
+                a = true;
+                //coprime will be less than n
+                int coprime = rand.nextInt((int) n-1) +1;//adds one so zero isnt included
+                output = (long) coprime;//holds the original value for coprime
+                int remainder = (int) n;
+                //runs through euclidean algorithm
+                while (remainder != 1){
+                    if((n%coprime) == 0){
+                        a = false;
+                        remainder = 1;
+                    }//end if
+                    else{
+                        //holds the number of times coprime goes into n
+                        int divides = remainder /coprime;
+                        remainder -= (divides*coprime);
+                        if(remainder == 1){
+                            //numbers are coprime
+                            break;
+                        }//end if
+                        else{
+                            //switches the numbers around for next round of algorithm
+                            int temp = coprime;
+                            coprime = remainder;
+                            remainder = temp;
+                        }//end else
+                    }//end else
+                }//end while
+                
+            }//end while
+            return output;
+        }//end relPrime
 	
 	/**
     	 * Display an array of longs on stdout
