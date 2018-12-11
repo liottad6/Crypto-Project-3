@@ -183,17 +183,18 @@ public class RSA {
         }//end relPrime
 	
 	/**
-    	 * Display an array of longs on stdout
- 	 * 
- 	 * @param  cipher   array of longs
+         * Display an array of longs on stdout
+         * 
+         * @param  cipher   array of longs
          */
-   	 public static void show(long[] cipher){
-       	 int i = 0;
-   	     while (i < cipher.length){
-        	    System.out.print(cipher[i]);
-          	  i++;
-       	     }//end while
-    	 }//end show
+        public static void show(long[] cipher){
+            int i = 0;
+            while (i < cipher.length){
+              System.out.print(cipher[i]);
+              i++;
+            }//end while
+            System.out.println();
+         }//end show
 	
 	/**
         * Convert two numeric chars to long int
