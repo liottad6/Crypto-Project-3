@@ -198,6 +198,7 @@ public class RSA {
 	
 	/**
         * Convert two numeric chars to long int
+	* @author Jared Bauta
         * @param  msg, p  
         * @return     the two digit number beginning at position p of msg as a long int.
         */
@@ -213,7 +214,7 @@ public class RSA {
 	
 	/**
         * Convert a long to 2 chars
-        * 
+        * @author Jared Bauta
         * @param  x
         * @return     The string made up two numeric digits representing x
         */
