@@ -17,12 +17,14 @@ public class Person {
 	 */
 	public Person() {
 		Random rand = new Random();
-		long p = RSA.randPrime(1, 500, rand);
-		long q = RSA.randPrime(1, 500, rand);
+		long p = RSA.randPrime(500, 2000, rand);
+		long q = RSA.randPrime(500, 2000, rand);
 		long n = (q - 1) * (p - 1);
 		this.m = q * p;
-		this.e = RSA.relPrime(m, rand); 
-		this.d = RSA.inverse(e, m);
+		while(this.d == 0){
+			this.e = RSA.relPrime(m, rand); 
+			this.d = RSA.inverse(e, n);
+		}
 	}
 	
 	public long getM() {
@@ -39,7 +41,9 @@ public class Person {
 	 * @param she the person who we are sending the message to
 	 * @return the encrypted message
 	 */
-	public long[] encryptTo(String msg, Person she) {	
+	public long[] encryptTo(String msg, Person she) {
+		if(msg.length() % 2 != 0)
+			msg = msg + "\0";
 		long[] encrBytes = new long[msg.length() / 2];
 	
 		for(int i = 0; i < msg.length(); i += 2) {
@@ -60,7 +64,7 @@ public class Person {
 		
 		for(int i = 0; i < cipher.length; i++) {
 			long tempBit = cipher[i];			//Retrieve the bit to decrypt
-			tempBit = RSA.modPower(tempBit, e, m);		//Decrypt it
+			tempBit = RSA.modPower(tempBit, d, m);		//Decrypt it
 			String temp = RSA.longTo2Chars(tempBit);	//Convert to a string
 			decrypted += temp;
 		}
